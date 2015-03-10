@@ -5,4 +5,8 @@ Spree::Product.class_eval do
   def self.favorite
     joins(:favorites).uniq
   end
+
+  def cached_favorites_count
+    self[:cached_favorites_count].to_i
+  end
 end
