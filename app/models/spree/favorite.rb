@@ -5,6 +5,8 @@ module Spree
       'Spree::Product'
     ]
 
+    after_save :update_cached_favorites_count
+
     belongs_to :favorable, polymorphic: true
     belongs_to :user, class_name: Spree.user_class.to_s
 
@@ -16,7 +18,12 @@ module Spree
 
     scope :by_guest_token, -> (token) { where(guest_token: token) }
 
-    default_scope { order('created_at DESC') } 
+    default_scope { order('created_at DESC') }
+
+    def update_cached_favorites_count
+      self.favorable.cached_favorites_count = self.favorable.favorites.count
+      self.favorable.save
+    end
 
   end
 end

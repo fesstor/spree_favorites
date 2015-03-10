@@ -29,7 +29,7 @@
             <td class="align-center"><%= mini_image(product) %></td>
             <td><%= product.try(:name) %></td>
             <td class="align-center"><%= product.display_price.to_html rescue '' %></td>
-            <td class='align-center'><%= link_to product.favorite_users.count, users_admin_favorite_path(:id => product.id) %></td>
+            <td class='align-center'><%= link_to product.cached_favorites_count, users_admin_favorite_path(:id => product.id) %></td>
           </tr>
       <% end %>
     </tbody>
