@@ -23,6 +23,11 @@ module Spree
     def update_cached_favorites_count
       self.favorable.cached_favorites_count = self.favorable.favorites.count
       self.favorable.save
+
+      unless self.user.nil?
+        self.user.cached_favorites_count = self.user.favorites.count
+        self.user.save
+      end
     end
 
   end

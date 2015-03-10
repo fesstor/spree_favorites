@@ -7,4 +7,7 @@ Spree.user_class.class_eval do
     favorites.exists? favorable_id: object.id, favorable_type: object.class.to_s
   end
 
+  def cached_favorites_count
+    self[:cached_favorites_count].to_i
+  end
 end
