@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_favorites'
-  s.version     = '2.2.0'
+  s.version     = '3.0.0'
   s.summary     = 'Users can mark favorite products or anything else you want to allow.'
   s.description = s.summary
   s.required_ruby_version = '>= 2.0.0'
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 2.3.0'
+  s.add_dependency 'spree_core', '>= 3.0.0.rc2'
 
   s.add_development_dependency 'capybara',           '~> 2.1'
   s.add_development_dependency 'coffee-rails'
