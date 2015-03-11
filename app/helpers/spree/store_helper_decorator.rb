@@ -3,7 +3,7 @@ module Spree
 
     def favorite_count
       if try_spree_current_user
-        try_spree_current_user.favorites.count
+        try_spree_current_user.cached_favorites_count
       elsif cookies.signed[:guest_token].present?
         Spree::Favorite.where(guest_token: cookies.signed[:guest_token]).count
       else
